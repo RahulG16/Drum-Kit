@@ -54,6 +54,7 @@
     <audio data-key="74" src="sounds/snare.wav"></audio>
     <audio data-key="75" src="sounds/tom.wav"></audio>
     <audio data-key="76" src="sounds/tink.wav"></audio>
+    <audio class="error" src="sounds/erro.mp3"></audio>
 
     <script>
       function playSound(e) {
@@ -61,7 +62,7 @@
 
         const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
-        if (!audio) return;
+        if (!audio) return audio.play(.error);
         audio.currentTime = 0; //rewind to start
         audio.play();
         key.classList.add("playing");
