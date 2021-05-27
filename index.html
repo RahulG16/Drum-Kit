@@ -62,7 +62,10 @@
 
         const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
-        if (!audio) return;
+        if (!audio) {
+          var error = new Audio("sounds/erro.mp3");
+          error.play();
+        }
         audio.currentTime = 0; //rewind to start
         audio.play();
         key.classList.add("playing");
